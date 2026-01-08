@@ -65,3 +65,4 @@ tmp/
 *.bak
 *.old
 *~
+.grok/settings.json
