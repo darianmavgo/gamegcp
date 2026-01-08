@@ -1,0 +1,67 @@
+# =========================
+# OS / System junk
+# =========================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+
+# =========================
+# Logs & runtime output
+# =========================
+*.log
+logs/
+*.out
+
+# =========================
+# Environment & secrets
+# =========================
+.env
+.env.*
+*.env
+
+# GCloud auth & config (NEVER COMMIT)
+**/gcloud/
+**/.gcloud/
+**/application_default_credentials.json
+**/adc.json
+**/*service-account*.json
+**/*sa-key*.json
+**/*credentials*.json
+**/*key*.json
+
+# =========================
+# Terraform (if applicable)
+# =========================
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+crash.log
+
+# =========================
+# GCloud / Build Artifacts
+# =========================
+dist/
+build/
+bin/
+tmp/
+.cache/
+.cache-gcloud/
+*.zip
+*.tar.gz
+
+# =========================
+# Editor / IDE
+# =========================
+.vscode/
+.idea/
+*.code-workspace
+
+# =========================
+# Bash temp files
+# =========================
+*.bak
+*.old
+*~
