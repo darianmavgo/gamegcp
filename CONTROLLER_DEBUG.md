@@ -21,20 +21,16 @@ We have updated the creation process. Run the following script from your local m
     ```
 3.  Connect via Microsoft Remote Desktop using the external IP and the new password.
 
-## 3. Apply Controller Fixes
+## 3. Apply Controller Fixes (Automated)
 
-Once inside the VM via RDP, you need to run the troubleshooting suite. This suite attempts 10 different fixes to resolve the controller streaming issue.
+The troubleshooting suite is now configured to run **automatically** when you create the VM using `create-gaming-vm.sh`. It runs as a Windows Startup Script.
 
-### Method A: Copy and Run (Recommended)
-1.  Copy the content of `setup/troubleshoot-controller.ps1` to the VM (e.g., save as `C:\troubleshoot-controller.ps1`).
-2.  Open PowerShell as **Administrator**.
-3.  Run the script:
-    ```powershell
-    C:\troubleshoot-controller.ps1
-    ```
+1.  **Wait for Boot**: After running the creation script, wait about 5-10 minutes for Windows to initialize and the script to finish.
+2.  **Connect**: Log in via RDP.
+3.  **Check Logs**: Open `C:\Temp\ControllerFix.log` to see the results of the 10 automated fixes.
 
-### Method B: Manual Review of Fixes
-If you prefer to check manually, here are the 10 fixes implemented in the script:
+### What does the script do?
+It attempts 10 different fixes to resolve the controller streaming issue:
 
 1.  **ViGEmBus Installation**: Checks if the Virtual Gamepad Emulation Bus is installed. If not, attempts to install via `winget`.
 2.  **Device Association Service**: Ensures this service is running. It is critical for PnP device detection.

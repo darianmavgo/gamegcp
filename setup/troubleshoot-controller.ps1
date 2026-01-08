@@ -43,19 +43,33 @@ function Check-And-Fix-Service {
 
 # FIX 1: Install/Update ViGEmBus
 Write-Host "`n[1] Checking ViGEmBus..."
-$ViGEmInstalled = Get-WmiObject Win32_InstalledWin32Program | Where-Object { $_.Name -like "*ViGEmBus*" }
-if (!$ViGEmInstalled) {
-    Write-Host "    ! ViGEmBus not detected. Installing..."
+# Win32_InstalledWin32Program is not standard. Using file check instead.
+$ViGEmDriverPath = "C:\Windows\System32\drivers\ViGEmBus.sys"
+
+if (!(Test-Path $ViGEmDriverPath)) {
+    Write-Host "    ! ViGEmBus driver file not found. Installing..."
     try {
-        # Using winget is often flaky on Server, trying direct download if possible, else falling back to winget
-        # Assuming winget is installed per previous instructions.
+        # Attempt 1: Winget (Best effort)
+        Write-Host "      Attempting install via winget..."
         winget install ViGEm.ViGEmBus --accept-package-agreements --accept-source-agreements
-        Write-Host "    + ViGEmBus install command executed."
     } catch {
-        Write-Host "    ! Failed to install ViGEmBus via winget. Please install manually from https://github.com/nefarius/ViGEmBus/releases"
+        Write-Host "      Winget failed or not available. Trying direct download..."
+        try {
+            # Attempt 2: Direct Download & Install
+            $InstallerUrl = "https://github.com/nefarius/ViGEmBus/releases/download/v1.21.442.0/ViGEmBus_Setup_1.21.442_x64.exe"
+            $InstallerPath = "C:\Temp\ViGEmBus_Setup.exe"
+            Invoke-WebRequest -Uri $InstallerUrl -OutFile $InstallerPath
+
+            Write-Host "      Running installer silently..."
+            Start-Process -FilePath $InstallerPath -ArgumentList "/quiet", "/norestart" -Wait -NoNewWindow
+            Write-Host "      Installer finished."
+        } catch {
+            Write-Host "    ! Failed to install ViGEmBus. Please install manually from https://github.com/nefarius/ViGEmBus/releases"
+            Write-Host "    ! Error: $_"
+        }
     }
 } else {
-    Write-Host "    * ViGEmBus is installed."
+    Write-Host "    * ViGEmBus driver file found ($ViGEmDriverPath)."
 }
 
 # FIX 2: Ensure Device Association Service is running
