@@ -1,0 +1,65 @@
+Created [https://www.googleapis.com/compute/v1/projects/rocket-league-483419/zones/us-east1-d/instances/win11-gpu-east].
+WARNING: Some requests generated warnings:
+ - Disk size: '100 GB' is larger than image size: '50 GB'. You might need to resize the root repartition manually if the operating system does not support automatic resizing. See https://cloud.google.com/compute/docs/disks/add-persistent-disk#resize_pd for details.
+
+INFO: Display format: "    table(
+      name,
+      zone.basename(),
+      machineType.machine_type().basename(),
+      scheduling.preemptible.yesno(yes=true, no=''),
+      networkInterfaces.internal_ip():label=INTERNAL_IP,
+      external_ip():label=EXTERNAL_IP,
+      status
+    )"
+INFO: cache collection=compute.instances api_version=v1 params=['project', 'zone', 'instance']
+NAME            ZONE        MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP    STATUS
+win11-gpu-east  us-east1-d  n1-standard-4  true         10.142.0.2   34.75.133.177  RUNNING
+darianhickman@MacBookPro rocket-league % 
+
+Would you like to set or reset the password for [darian_device] (Y/n)?  y
+
+Resetting and retrieving password for [darian_device] on [win11-gpu-east]
+Updated [https://www.googleapis.com/compute/v1/projects/rocket-league-483419/zones/us-east1-d/instances/win11-gpu-east].
+ip_address: 34.75.133.177
+password:   H_>:h(Zva8]l*+I
+username:   darian_device
+darianhickman@MacBookPro rocket-league % 
+
+OS Name	Microsoft Windows Server 2022 Datacenter
+Version	10.0.20348 Build 20348
+Other OS Description 	Not Available
+OS Manufacturer	Microsoft Corporation
+System Name	WIN11-GPU-EAST
+System Manufacturer	Google
+System Model	Google Compute Engine
+System Type	x64-based PC
+System SKU	
+Processor	Intel(R) Xeon(R) CPU @ 2.30GHz, 2300 Mhz, 2 Core(s), 4 Logical Processor(s)
+BIOS Version/Date	Google Google, 10/24/2025
+SMBIOS Version	2.4
+Embedded Controller Version	255.255
+BIOS Mode	UEFI
+BaseBoard Manufacturer	Google
+BaseBoard Product	Google Compute Engine
+BaseBoard Version	Not Available
+Platform Role	Desktop
+Secure Boot State	Off
+PCR7 Configuration	Not Available
+Windows Directory	C:\Windows
+System Directory	C:\Windows\system32
+Boot Device	\Device\HarddiskVolume2
+Locale	United States
+Hardware Abstraction Layer	Version = "10.0.20348.2849"
+User Name	Not Available
+Time Zone	Greenwich Standard Time
+Installed Physical Memory (RAM)	15.0 GB
+Total Physical Memory	15.0 GB
+Available Physical Memory	11.1 GB
+Total Virtual Memory	16.0 GB
+Available Virtual Memory	12.5 GB
+Page File Space	1.00 GB
+Page File	C:\pagefile.sys
+Kernel DMA Protection	Off
+Virtualization-based security	Not enabled
+Device Encryption Support	Not Available
+A hypervisor has been detected. Features required for Hyper-V will not be displayed.	

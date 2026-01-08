@@ -1,0 +1,2 @@
+gcloud config set project rocket-league-483419
+gcloud compute instances stop rocket-league-gaming --zone=us-east4-c

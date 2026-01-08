@@ -1,0 +1,13 @@
+gcloud compute instances create win11-gpu-budget \
+    --project=rocket-league-483419 \
+    --zone=us-central1-a \
+    --machine-type=n1-standard-4 \
+    --accelerator=type=nvidia-tesla-t4,count=1 \
+    --maintenance-policy=TERMINATE \
+    --provisioning-model=SPOT \
+    --instance-termination-action=STOP \
+    --image-project=windows-cloud \
+    --image-family=windows-2025-ent-aug-2025-x64-g2 \
+    --boot-disk-size=100GB \
+    --boot-disk-type=pd-ssd \
+    --network=default

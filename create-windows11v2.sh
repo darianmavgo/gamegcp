@@ -1,0 +1,13 @@
+gcloud compute instances create win11-gpu-east \
+    --project=rocket-league-483419 \
+    --zone=us-east1-d \
+    --machine-type=n1-standard-4 \
+    --accelerator=type=nvidia-tesla-t4,count=1 \
+    --maintenance-policy=TERMINATE \
+    --provisioning-model=SPOT \
+    --image-project=windows-cloud \
+    --image-family=windows-2022 \
+    --boot-disk-size=100GB \
+    --boot-disk-type=pd-ssd \
+    --network=default \
+    --verbosity=info

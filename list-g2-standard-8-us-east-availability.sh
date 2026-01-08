@@ -1,0 +1,1 @@
+gcloud compute machine-types list --filter="name=g2-standard-8 AND zone:us-east*" --format="table(name, zone)"
