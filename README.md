@@ -99,3 +99,9 @@ Because the IP address changes on every restart, updating your RDP client can be
 *   `install-game-controller.bat`: Installs ViGEmBus driver.
 *   `reset-user-password.sh`: Resets Windows user password.
 *   `allow-parsec.sh`: GCP Firewall rule creation for Parsec.
+
+## Progress 
+* Failed: Never got streaming of game controller from macos to gce windows vm working.
+* Success: Audio streaming in Parsec and Windows App
+* Success: Video streaming at 1440x900
+* If I get that xbox game controller working this would have been a fantastic solution to enjoy heavy gpu games that don't run on mac. Far better than running window on Paralell.
